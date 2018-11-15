@@ -1,0 +1,22 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.like > 0,
+                'list-group-item-danger': post.like < 0
+              }">
+  <ul class="list-inline">
+    <li>
+      <h2>{{ post.title }}</h2>
+    </li>
+    <li class="pull-right">
+      <p>{{ post.date | date: "M/d/yyyy,HH:mm a"}}</p>
+    </li>
+  </ul>
+  <p>{{ post.content }}</p>
+
+  <ul class="list-inline">
+    <li><button class="btn btn-success" (click)="onLike()">Love It !</button></li>
+    <li><button class="btn btn-danger" (click)="onUnlike()">Don"t love it !</button></li>
+    <li class="pull-right">
+      <button class="btn btn-link" (click)="onDeletePost(post)">Supprimer le post</button>
+    </li>
+  </ul>
+</li>
